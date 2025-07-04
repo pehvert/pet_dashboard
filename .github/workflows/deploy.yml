@@ -1,0 +1,25 @@
+name: Deploy to Azure
+
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: streamlit-app
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: YOUR_AZURE_APP_NAME
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          package: .
