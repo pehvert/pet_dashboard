@@ -272,7 +272,7 @@ def create_comfort_donut_chart(df, category_column):
     )])
 
     fig.update_layout(
-        template='plotly-white',
+        template='plotly_white',
           annotations=[dict(
               text='Annual<br>PET',
               x=0.5, y=0.5,
