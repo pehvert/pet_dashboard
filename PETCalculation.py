@@ -349,8 +349,6 @@ strategy_selection = environment_col.selectbox(
 # Add the section header
 environment_col.subheader("Legend")
 
-environment_col.image(r'C:\Users\pehvert\OneDrive - Foster + Partners\Documents\03_Projects\PET_Dashboard\01_Data\Legend.png')
-
 
 
 # Add the section header for the results
